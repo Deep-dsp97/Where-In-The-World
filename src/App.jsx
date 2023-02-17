@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BsMoon, BsMoonFill } from "react-icons/bs";
 import Header from "./components/Header";
+import SearchFilter from "./components/SearchFilter";
 import "./App.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         darkMode={darkMode}
         setDarkMode={setDarkMode}
       />
+      <SearchFilter />
     </div>
   );
 }
