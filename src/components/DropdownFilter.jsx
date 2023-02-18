@@ -1,8 +1,8 @@
 import React from "react";
 
-const DropdownFilter = () => {
+const DropdownFilter = ({ countries, filterByRegion }) => {
   return (
-    <div id="dropdown-container">
+    <div id="dropdown-container" className={countries.length ? "" : "hidden"}>
       <button
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
@@ -34,38 +34,20 @@ const DropdownFilter = () => {
           className="py-2 text-sm text-gray-700 dark:text-gray-200"
           aria-labelledby="dropdownDefaultButton"
         >
-          <li>
-            <a
-              href="/"
-              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a
-              href="/"
-              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              Settings
-            </a>
-          </li>
-          <li>
-            <a
-              href="/"
-              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              Earnings
-            </a>
-          </li>
-          <li>
-            <a
-              href="/"
-              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-            >
-              Sign out
-            </a>
-          </li>
+          {countries.map((country) => (
+            <li key={country.name}>
+              <a
+                href="/"
+                className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                onClick={(e) => {
+                  e.preventDefault();
+                  filterByRegion(country.region);
+                }}
+              >
+                {country.region}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

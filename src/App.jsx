@@ -9,6 +9,7 @@ import "./App.css";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [countries, setCountries] = useState([]);
+  // const [regions, setRegions] = useState([]);
 
   // get all countries on load
   useEffect(() => {
@@ -16,6 +17,7 @@ function App() {
       try {
         let res = await axios.get("https://restcountries.com/v2/all");
         setCountries(res.data);
+        console.log(res.data);
       } catch (error) {
         console.log(error);
       }
@@ -31,6 +33,12 @@ function App() {
     }
   };
 
+  const filterByRegion = (region) => {
+    console.log(region);
+    let filter = countries.filter((country) => country.region === region);
+    setCountries(filter);
+  };
+
   return (
     <div className="App day-mode">
       <Header
@@ -39,7 +47,11 @@ function App() {
         darkMode={darkMode}
         setDarkMode={setDarkMode}
       />
-      <SearchFilter onInputSubmit={onInputSubmit} />
+      <SearchFilter
+        onInputSubmit={onInputSubmit}
+        countries={countries}
+        filterByRegion={filterByRegion}
+      />
       <Countries countries={countries} />
     </div>
   );
