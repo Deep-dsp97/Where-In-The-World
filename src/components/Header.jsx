@@ -11,14 +11,15 @@ const header = ({ BsMoon, BsMoonFill, darkMode, setDarkMode }) => {
             </a>
           </div>
 
-          <div id="navbar-collapse">
+          <div id="navbar-collapse" className="flex flex-row items-center">
+            <strong className="text-md text-zinc-500 mr-2">Turn On</strong>
             <button
-              className="flex flex-row justify-between items-center"
+              className="flex flex-row justify-between items-center border border-zinc-600 p-3 rounded"
               onClick={() => setDarkMode(!darkMode)}
             >
-              {!darkMode ? <BsMoon /> : <BsMoonFill />}
+              {darkMode ? <BsMoon /> : <BsMoonFill />}
               <p className="text-md text-zinc-500 ml-2">
-                {!darkMode ? "Dark Mode" : "Day Mode"}
+                <strong>{!darkMode ? "Dark Mode" : "Day Mode"}</strong>
               </p>
             </button>
           </div>

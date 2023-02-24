@@ -7,9 +7,15 @@ const Country = ({ flag, name, population, region, capital }) => {
       {/* <div className="flag"></div> */}
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{name}</div>
-        <p className="text-gray-700 text-base">Population: {population}</p>
-        <p className="text-gray-700 text-base">region: {region}</p>
-        <p className="text-gray-700 text-base">capital: {capital}</p>
+        <p className="text-gray-700 text-base">
+          <strong>Population:</strong> {population}
+        </p>
+        <p className="text-gray-700 text-base">
+          <strong>Region:</strong> {region}
+        </p>
+        <p className="text-gray-700 text-base">
+          <strong>Capital:</strong> {capital}
+        </p>
       </div>
     </a>
   );

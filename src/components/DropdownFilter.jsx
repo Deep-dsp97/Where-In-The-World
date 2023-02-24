@@ -1,5 +1,7 @@
 import React from "react";
 
+const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+
 const DropdownFilter = ({ countries, filterByRegion }) => {
   return (
     <div id="dropdown-container" className={countries.length ? "" : "hidden"}>
@@ -34,17 +36,29 @@ const DropdownFilter = ({ countries, filterByRegion }) => {
           className="py-2 text-sm text-gray-700 dark:text-gray-200"
           aria-labelledby="dropdownDefaultButton"
         >
-          {countries.map((country) => (
-            <li key={country.name}>
+          <li>
+            <a
+              href="/"
+              className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={(e) => {
+                e.preventDefault();
+                filterByRegion(null);
+              }}
+            >
+              All
+            </a>
+          </li>
+          {regions.map((region) => (
+            <li key={region}>
               <a
                 href="/"
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                 onClick={(e) => {
                   e.preventDefault();
-                  filterByRegion(country.region);
+                  filterByRegion(region);
                 }}
               >
-                {country.region}
+                {region}
               </a>
             </li>
           ))}

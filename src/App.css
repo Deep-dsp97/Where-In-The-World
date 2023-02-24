@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background: rgb(233, 233, 233);
-}
-
 /* Screen Reader Text */
 .screen-reader-text {
   border: 0;
@@ -28,6 +24,37 @@ body {
   left: 20px;
 }
 
+.countries-container img {
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.countries-container a {
+  width: 100%;
+}
+
+/* day Mode */
+
+.App.day-mode {
+  background: rgb(233, 233, 233);
+}
+
 .day-mode .countries-container a {
   background: #fff;
+}
+/* dark Mode */
+
+.App.dark-mode {
+  background: rgb(66 66 66);
+}
+
+.dark-mode .countries-container a {
+  background: #2a2a2a;
+}
+
+.dark-mode .countries-container a p,
+.dark-mode .countries-container a > div {
+  color: white;
 }
