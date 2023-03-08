@@ -1,6 +1,21 @@
 import React from "react";
 
 const header = ({ BsMoon, BsMoonFill, darkMode, setDarkMode }) => {
+  function bodyColorChange() {
+    const body = document.querySelector("body");
+    if (!darkMode) {
+      if (body.classList.contains("day-mode")) {
+        body.classList.remove("day-mode");
+      }
+      body.classList.add("dark-mode");
+    } else {
+      if (body.classList.contains("dark-mode")) {
+        body.classList.remove("dark-mode");
+      }
+      body.classList.remove("day-mode");
+    }
+  }
+
   return (
     <header className="fixed top-0 w-full">
       <nav className="bg-white py-2 md:py-4">
@@ -11,14 +26,15 @@ const header = ({ BsMoon, BsMoonFill, darkMode, setDarkMode }) => {
             </a>
           </div>
 
-          <div id="navbar-collapse">
+          <div id="navbar-collapse" className="flex flex-row items-center">
+            <strong className="text-md text-zinc-500 mr-2">Turn On</strong>
             <button
-              className="flex flex-row justify-between items-center"
-              onClick={() => setDarkMode(!darkMode)}
+              className="flex flex-row justify-between items-center border border-zinc-600 p-3 rounded"
+              onClick={() => (setDarkMode(!darkMode), bodyColorChange())}
             >
-              {!darkMode ? <BsMoon /> : <BsMoonFill />}
+              {darkMode ? <BsMoon /> : <BsMoonFill />}
               <p className="text-md text-zinc-500 ml-2">
-                {!darkMode ? "Dark Mode" : "Day Mode"}
+                <strong>{!darkMode ? "Dark Mode" : "Day Mode"}</strong>
               </p>
             </button>
           </div>
