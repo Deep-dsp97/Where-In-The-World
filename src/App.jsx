@@ -37,18 +37,22 @@ function App() {
     }
   };
 
-  const filterByRegion = (region) => {
-    // console.log(region);
-    if (region) {
-      let filter = countries.filter((country) => country.region === region);
-      setCountries(filter);
-    } else {
-      fetchAll();
+  const filterByRegion = async (region) => {
+    try {
+      if (region != "All") {
+        let filter = await axios.get(
+          `https://restcountries.com/v2/region/${region}`
+        );
+        setCountries(filter.data);
+      }
+    } catch (error) {
+      console.log("Search Filter fail", error);
     }
   };
 
   return (
-    <div className={`App ${!darkMode ? "day-mode" : "dark-mode"}`}>
+    // <div className={`App ${!darkMode ? "day-mode" : "dark-mode"}`}>
+    <div className="App">
       <Header
         BsMoon={BsMoon}
         BsMoonFill={BsMoonFill}

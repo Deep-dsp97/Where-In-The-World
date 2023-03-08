@@ -18,6 +18,10 @@
   word-wrap: normal !important;
 }
 
+#dropdownDefaultButton {
+  width: 155px;
+}
+
 /* Search Input Filter */
 .search-icon {
   top: 20px;
@@ -37,7 +41,7 @@
 
 /* day Mode */
 
-.App.day-mode {
+.day-mode {
   background: rgb(233, 233, 233);
 }
 
@@ -46,7 +50,7 @@
 }
 /* dark Mode */
 
-.App.dark-mode {
+.dark-mode {
   background: rgb(66 66 66);
 }
 
