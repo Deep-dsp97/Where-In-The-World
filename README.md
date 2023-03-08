@@ -49,3 +49,11 @@ Start the server
 ```bash
   npm run dev
 ```
+
+## Authors
+
+[@Deep Patel](https://deepdev.netlify.com)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
