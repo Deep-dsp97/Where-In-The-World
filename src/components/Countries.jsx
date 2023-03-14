@@ -4,7 +4,7 @@ import Country from "./Country";
 
 const Countries = ({ countries }) => {
   return (
-    <div className="countries-container xl:container px-4 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 mt-50 my-11">
+    <div className="countries-container xl:container px-4 mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 mt-50 my-11 justify-items-center sm:justify-items-start">
       {!countries.length ? (
         <h1>No Countries Found</h1>
       ) : (

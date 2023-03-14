@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 
-const DropdownFilter = ({ filterByRegion }) => {
+const DropdownFilter = ({
+  filterByRegion,
+  clickDropdown,
+  setClickDropdown,
+  fetchAll,
+}) => {
   const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
-  const [clickDropdown, setClickDropdown] = useState(false);
+  // const [clickDropdown, setClickDropdown] = useState(false);
   const [regionName, setRegionName] = useState("");
   return (
     <div
@@ -44,7 +49,7 @@ const DropdownFilter = ({ filterByRegion }) => {
           className="py-2 text-sm text-gray-700 dark:text-gray-200"
           aria-labelledby="dropdownDefaultButton"
         >
-          <li className="hidden">
+          <li className="">
             <a
               href="/"
               className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -53,6 +58,7 @@ const DropdownFilter = ({ filterByRegion }) => {
                 filterByRegion(null);
                 setClickDropdown(false);
                 setRegionName("All");
+                fetchAll();
               }}
             >
               All

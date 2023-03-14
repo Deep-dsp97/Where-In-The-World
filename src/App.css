@@ -22,6 +22,10 @@
   width: 155px;
 }
 
+#dropdown {
+  transform: translate(0, 70px) !important;
+}
+
 /* Search Input Filter */
 .search-icon {
   top: 20px;
@@ -59,6 +63,15 @@
 }
 
 .dark-mode .countries-container a p,
-.dark-mode .countries-container a > div {
+.dark-mode .countries-container a > div,
+.dark-mode .single-country-info-container h1,
+.dark-mode .single-country-info-container p,
+.dark-mode .back-arrow button {
   color: white;
+}
+
+/* Map Conrainer */
+.leaflet-container {
+  margin-top: 50px;
+  height: 35vh;
 }

@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Country = ({ flag, name, population, region, capital }) => {
   return (
-    <a href="/" className="max-w-sm rounded overflow-hidden shadow-lg">
+    <Link
+      to={`/country/${name}`}
+      className="max-w-sm rounded overflow-hidden shadow-lg"
+    >
       <img className="w-full object-contain" src={flag} alt={name} />
       {/* <div className="flag"></div> */}
       <div className="px-6 py-4">
@@ -17,7 +21,7 @@ const Country = ({ flag, name, population, region, capital }) => {
           <strong>Capital:</strong> {capital}
         </p>
       </div>
-    </a>
+    </Link>
   );
 };
 
