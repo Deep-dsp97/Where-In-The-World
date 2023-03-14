@@ -3,7 +3,7 @@ import { BiSearch } from "react-icons/bi";
 
 const InputSearch = ({ onInputSubmit }) => {
   return (
-    <form action="" className="w-1/3">
+    <form action="" className="w-full sm:w-1/3">
       <div id="search-input-container" className="relative">
         <label className="screen-reader-text" htmlFor="search-input">
           Search

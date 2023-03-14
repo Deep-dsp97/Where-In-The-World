@@ -89,6 +89,7 @@ function App() {
                     setRegions={setRegions}
                     setClickDropdown={setClickDropdown}
                     clickDropdown={clickDropdown}
+                    fetchAll={fetchAll}
                   />
                   <Countries
                     countries={countries}

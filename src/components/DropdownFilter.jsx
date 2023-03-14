@@ -4,6 +4,7 @@ const DropdownFilter = ({
   filterByRegion,
   clickDropdown,
   setClickDropdown,
+  fetchAll,
 }) => {
   const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
   // const [clickDropdown, setClickDropdown] = useState(false);
@@ -48,7 +49,7 @@ const DropdownFilter = ({
           className="py-2 text-sm text-gray-700 dark:text-gray-200"
           aria-labelledby="dropdownDefaultButton"
         >
-          <li className="hidden">
+          <li className="">
             <a
               href="/"
               className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -57,6 +58,7 @@ const DropdownFilter = ({
                 filterByRegion(null);
                 setClickDropdown(false);
                 setRegionName("All");
+                fetchAll();
               }}
             >
               All

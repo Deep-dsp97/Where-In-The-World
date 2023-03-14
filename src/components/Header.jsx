@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { GiWorld } from "react-icons/gi";
 
 const header = ({ BsMoon, BsMoonFill, darkMode, setDarkMode, fetchAll }) => {
   function bodyColorChange() {
@@ -18,19 +19,16 @@ const header = ({ BsMoon, BsMoonFill, darkMode, setDarkMode, fetchAll }) => {
   }
 
   return (
-    <header className="fixed top-0 w-full">
+    <header className="fixed top-0 w-full drop-shadow-md z-40">
       <nav className="bg-white py-2 md:py-4">
         <div className="container px-4 mx-auto flex justify-between items-center">
           <div className="flex justify-between items-center">
-            {/* <a href="/" className="font-bold text-2xl text-zinc-900">
-              Where In The world ?
-            </a> */}
             <Link
               to="/"
-              className="font-bold text-2xl text-zinc-900"
+              className="font-bold text-2xl text-zinc-900 animate-spin-slow"
               onClick={() => fetchAll()}
             >
-              Where In The World ?
+              <GiWorld className="text-5xl" />
             </Link>
           </div>
 

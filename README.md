@@ -16,14 +16,6 @@ Challenge is to incorporating with [Rest Countries API](https://restcountries.co
     2. TailwindCSS
     3. Vite
 
-## Upcoming Updates
-
-    1. Page template for each country to provide more information respectively.
-    2. Show location on map using the values of latitude and longitude
-    3. Apply React Routes
-    4. Perfomance Optimization.
-    5. Responssiveness
-
 ## Run Locally
 
 Clone the project

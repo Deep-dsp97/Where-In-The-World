@@ -1,12 +1,19 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import fetchCountry from "./fetchCountry";
 import { useQuery } from "@tanstack/react-query";
-// import { MapContainer, TileLayer, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 const Details = () => {
+  const navigate = useNavigate();
   const { name } = useParams();
   const results = useQuery(["details", name], fetchCountry);
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   if (results.isLoading) {
     return (
@@ -17,12 +24,21 @@ const Details = () => {
   }
 
   const country = results.data?.[0];
-  console.log(country);
+  const lanlat = country.latlng;
   return (
-    <div className="xl:container mx-auto px-4 pt-32">
+    <div className="xl:container mx-auto px-4 pt-32 single-country-info-container">
+      <div className="back-arrow">
+        <button
+          onClick={goBack}
+          className="text-gray-700 text-base flex flex-row items-center font-medium"
+        >
+          <IoArrowBackCircleOutline className="mr-2 text-5xl hover:animate-[spin_1s_ease-in-out]" />
+          Back
+        </button>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 mt-4">
         <div className="country-flag">
-          <img className="w-4/5" src={country.flag} alt="" />
+          <img className="w-full sm:w-4/5" src={country.flag} alt="" />
         </div>
         <div className="country-details mt-8 sm:mt-0 flex items-center">
           <div>
@@ -57,6 +73,13 @@ const Details = () => {
         </div>
       </div>
       {/* Map Container */}
+      <MapContainer center={lanlat} zoom={4} scrollWheelZoom={false}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={lanlat}>{country.name}</Marker>
+      </MapContainer>
     </div>
   );
 };
