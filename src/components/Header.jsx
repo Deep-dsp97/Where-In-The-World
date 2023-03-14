@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const header = ({ BsMoon, BsMoonFill, darkMode, setDarkMode }) => {
+const header = ({ BsMoon, BsMoonFill, darkMode, setDarkMode, fetchAll }) => {
   function bodyColorChange() {
     const body = document.querySelector("body");
     if (!darkMode) {
@@ -21,9 +22,16 @@ const header = ({ BsMoon, BsMoonFill, darkMode, setDarkMode }) => {
       <nav className="bg-white py-2 md:py-4">
         <div className="container px-4 mx-auto flex justify-between items-center">
           <div className="flex justify-between items-center">
-            <a href="/" className="font-bold text-2xl text-zinc-900">
+            {/* <a href="/" className="font-bold text-2xl text-zinc-900">
               Where In The world ?
-            </a>
+            </a> */}
+            <Link
+              to="/"
+              className="font-bold text-2xl text-zinc-900"
+              onClick={() => fetchAll()}
+            >
+              Where In The World ?
+            </Link>
           </div>
 
           <div id="navbar-collapse" className="flex flex-row items-center">

@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 
-const DropdownFilter = ({ filterByRegion }) => {
+const DropdownFilter = ({
+  filterByRegion,
+  clickDropdown,
+  setClickDropdown,
+}) => {
   const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
-  const [clickDropdown, setClickDropdown] = useState(false);
+  // const [clickDropdown, setClickDropdown] = useState(false);
   const [regionName, setRegionName] = useState("");
   return (
     <div

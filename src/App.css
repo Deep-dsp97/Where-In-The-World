@@ -22,6 +22,10 @@
   width: 155px;
 }
 
+#dropdown {
+  transform: translate(0, 70px) !important;
+}
+
 /* Search Input Filter */
 .search-icon {
   top: 20px;
