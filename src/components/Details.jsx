@@ -1,9 +1,9 @@
+import "leaflet/dist/leaflet.css";
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import fetchCountry from "./fetchCountry";
 import { useQuery } from "@tanstack/react-query";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 const Details = () => {
