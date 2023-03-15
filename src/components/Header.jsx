@@ -25,7 +25,7 @@ const header = ({ BsMoon, BsMoonFill, darkMode, setDarkMode, fetchAll }) => {
           <div className="flex justify-between items-center">
             <Link
               to="/"
-              className="font-bold text-2xl text-zinc-900 animate-[spin_2s_linear_infinite]"
+              className="hp font-bold text-2xl text-zinc-900 animate-[spin_2s_linear_infinite]"
               onClick={() => fetchAll()}
             >
               <GiWorld className="text-5xl" />
