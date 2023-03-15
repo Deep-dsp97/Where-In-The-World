@@ -26,7 +26,7 @@ const Details = () => {
   }
 
   var myIcon = L.icon({
-    iconUrl: "/src/images/pin.png",
+    iconUrl: "/images/pin.png",
     iconSize: [54, 54],
   });
 
