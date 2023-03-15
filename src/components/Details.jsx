@@ -1,4 +1,5 @@
 import "leaflet/dist/leaflet.css";
+import icon from "leaflet/dist/images/marker-icon.png";
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import fetchCountry from "./fetchCountry";
@@ -7,6 +8,7 @@ import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 const Details = () => {
+  console.log(icon);
   const navigate = useNavigate();
   const { name } = useParams();
   const results = useQuery(["details", name], fetchCountry);
