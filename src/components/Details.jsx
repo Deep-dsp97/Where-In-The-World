@@ -1,5 +1,6 @@
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import icon from "leaflet/dist/images/marker-icon.png";
+// import icon from "leaflet/dist/images/marker-icon.png";
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import fetchCountry from "./fetchCountry";
@@ -8,7 +9,6 @@ import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 const Details = () => {
-  console.log(icon);
   const navigate = useNavigate();
   const { name } = useParams();
   const results = useQuery(["details", name], fetchCountry);
@@ -24,6 +24,11 @@ const Details = () => {
       </div>
     );
   }
+
+  var myIcon = L.icon({
+    iconUrl: "/src/images/pin.png",
+    iconSize: [54, 54],
+  });
 
   const country = results.data?.[0];
   const lanlat = country.latlng;
@@ -80,7 +85,9 @@ const Details = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={lanlat}>{country.name}</Marker>
+        <Marker position={lanlat} icon={myIcon}>
+          {country.name}
+        </Marker>
       </MapContainer>
     </div>
   );
